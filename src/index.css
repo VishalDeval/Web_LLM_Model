@@ -1,0 +1,9 @@
+*{
+  background-color: rgb(26, 26, 26);
+  color:white;
+  font-family: gilroy;
+}
+@font-face {
+  font-family: gilroy;
+  src: url(assets\Gilroy-Light.otf);
+}
