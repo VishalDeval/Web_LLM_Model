@@ -48,8 +48,8 @@ RedPajama, Vicuna, and more
 
 Model files are automatically downloaded and cached on your device during first load.
 
-📷 Screenshot
-(Add a screenshot here if possible, like a chat window)
+![alt text](<Screenshot 2025-08-01 000224.png>)
+![alt text](<Screenshot 2025-08-01 000114.png>)
 
 🔧 How to Run
 bash
