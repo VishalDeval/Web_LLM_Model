@@ -3,9 +3,7 @@ import * as webllm from "@mlc-ai/web-llm";
 import "./App.css";
 
 function App() {
-  const [messages, setMessages] = useState([
-    
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [engine, setEngine] = useState(null);
 
@@ -25,40 +23,40 @@ function App() {
   }, []);
 
   async function sendMessageToLlm() {
-    const tempMessages = [...messages];
-    tempMessages.push({
+    const userMessages={
       role: "user",
       content: input,
-    });
+    };
+    const tempMessages = [...messages,userMessages];
+    
     setMessages(tempMessages);
-    console.log('done0')
+
+    
     setInput("");
     const reply = await engine.chat.completions.create({
       messages:tempMessages,
     });
-    console.log('done1')
-    console.log("reply", reply);
-    const newReply = [...messages];
-    newReply.push({
+    const toolReply={
       role:"tool",
       content:reply.choices[0].message.content
-    })
-    console.log(reply.choices[0].message.content)
-    setMessages(newReply)
-    console.log('done2')
+    }
+    
+    //console.log(reply.choices[0].message.content)
+    
+    setMessages((prev)=>[...prev,toolReply])
+    
+    // console.log('done2')
   }
   return (
     <main>
       <section>
         <div className="conversational-area">
           <div className="messages">
-            {messages.map((message, index) => {
-              return (
+            {messages.length==0 ?(<div className="front">Hey, how are you?</div>):(messages.map((message, index) => (
                 <div className={`message ${message.role}`} key={index}>
                   {message.content}
                 </div>
-              );
-            })}
+            )))}
           </div>
           <div className="input-area">
             <input
