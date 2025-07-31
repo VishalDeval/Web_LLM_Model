@@ -4,26 +4,7 @@ import "./App.css";
 
 function App() {
   const [messages, setMessages] = useState([
-    {
-      role: "tool",
-      content: "Hello, how can I help you?",
-    },
-    {
-      role: "user",
-      content: "Hello, how are you?",
-    },
-    {
-      role: "tool",
-      content: "I am fine, thank you!",
-    },
-    {
-      role: "user",
-      content: "What is your name?",
-    },
-    {
-      role: "tool",
-      content: "My name is Laama !",
-    },
+    
   ]);
   const [input, setInput] = useState("");
   const [engine, setEngine] = useState(null);
